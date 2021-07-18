@@ -1,0 +1,6 @@
+.list{
+    grid-area: f;
+    background-color: rgb(238, 229, 101);
+    height: 500px;
+    text-align: center;
+}
