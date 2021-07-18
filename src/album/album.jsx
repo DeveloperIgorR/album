@@ -15,11 +15,9 @@ const Album = () => {
         <div>
             <div>
                 <AlbumForm createFiles={createFiles} />
-                <AlbumList />
+                <AlbumList files={files}/>
             </div>
-            <div>
-              {files.name}
-            </div>
+            
         </div>
     )
 }
