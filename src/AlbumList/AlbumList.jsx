@@ -1,18 +1,8 @@
-import React, { useEffect, useState } from 'react'
+import React from 'react'
 import l from './AlbumList.module.css'
-import {instance} from '../http/http'
 
 const AlbumList = (props)=>{
-    const[photos,setPhotos] = useState([])
-    useEffect(()=>{
-        getPhotos()
-    },[])
-
-    async function getPhotos(){
-         const respons = await instance.get('photos/')
-         setPhotos(respons.data)
-    }
-    
+        
     return(
         <div className={l.list}>
 
@@ -24,6 +14,7 @@ const AlbumList = (props)=>{
                  <li>{discription.title}</li>
                  <li>{discription.date}</li>
                  <li>{discription.author}</li>
+                 <img src={discription.url}/>
                  </ul>
             </div>
          )}
