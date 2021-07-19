@@ -1,13 +1,12 @@
 import React, { useEffect, useState } from 'react'
-
 import AlbumForm from '../AlbumForm/AlbumForm'
 import AlbumList from '../AlbumList/AlbumList'
+
 const Album = () => {
     const [files, setFiles] = useState([])
-    useEffect(createFiles,[])
-    
+        
     function createFiles (newFile)  {
-       return setFiles([...files,newFile])
+      setFiles([...files,newFile])
         
     }
     

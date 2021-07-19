@@ -17,13 +17,13 @@ const AlbumForm = (props)=>{
     return(
         <div className={f.form}>
          <div>
-             <input placeholder='название' onChange={event=>setName(event.target.value)}></input>
+             <input placeholder='название' value={name} onChange={event=>setName(event.target.value)}></input>
          </div>
          <div>
-             <input placeholder='дата создания' onChange={event=>setDate(event.target.value)}></input>
+             <input placeholder='дата создания'value={date}onChange={event=>setDate(event.target.value)}></input>
          </div>
          <div>
-              <input placeholder='имя автора' onChange={event=>setAuthor(event.target.value)}></input>
+              <input placeholder='имя автора' value={author} onChange={event=>setAuthor(event.target.value)}></input>
          </div>
          <button onClick={addData}>add discription</button>
         </div>
