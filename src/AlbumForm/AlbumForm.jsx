@@ -2,11 +2,14 @@ import React, { useState } from 'react'
 import f from './AlbumForm.module.css'
 const AlbumForm = (props)=>{
     const[name,setName] = useState('')
-    const[date,setDate] = useState(0)
+    const[date,setDate] = useState('')
     const[author,setAuthor] = useState('')
     let addData = ()=>{
         let newFile = {
-            id:Date.now(),name:name,date:date,author:author
+            id:Date.now(),
+            title:name,
+            date:date,
+            author:author
         }
         props.createFiles(newFile)
         setName('')
