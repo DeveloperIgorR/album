@@ -6,7 +6,7 @@ import {instance} from '../http/http'
 const Album = () => {
     const [files, setFiles] = useState([])
     const [page,setPage] = useState(1)
-    const limit = 6
+    const limit = 9
     useEffect(()=>{
         getPhotos(page,limit)
     },[])
