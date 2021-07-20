@@ -12,7 +12,7 @@ const Album = () => {
     },[])
 
     async function getPhotos(page,limit){
-         const respons = await instance.get(`photos?_page=${page}_limit=${limit}`)
+         const respons = await instance.get(`photos?_page=${page}_&_limit=${limit}`)
          setFiles(respons.data)
     } 
    
