@@ -4,20 +4,21 @@ import l from './AlbumList.module.css'
 const AlbumList = (props)=>{
         
     return(
+        <div>
+            <h2>Альбом с фотографиями</h2>
         <div className={l.list}>
-
-         <h2>Альбом с фотографиями</h2>
-         
+            
          {props.files.map(discription=>
-             <div>
-                 <ul>
+             <div className={l.images}>
+                 <p>
                  <li>{discription.title}</li>
                  <li>{discription.date}</li>
                  <li>{discription.author}</li>
                  <img src={discription.url}/>
-                 </ul>
+                 </p>
             </div>
          )}
+        </div>
         </div>
     )
 }

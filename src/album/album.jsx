@@ -5,12 +5,14 @@ import {instance} from '../http/http'
 
 const Album = () => {
     const [files, setFiles] = useState([])
+    const [page,setPage] = useState(1)
+    const limit = 6
     useEffect(()=>{
-        getPhotos()
+        getPhotos(page,limit)
     },[])
 
-    async function getPhotos(){
-         const respons = await instance.get('photos/')
+    async function getPhotos(page,limit){
+         const respons = await instance.get(`photos?_page=${page}_limit=${limit}`)
          setFiles(respons.data)
     } 
    

@@ -1,6 +1,21 @@
 .list{
-    grid-area: f;
-    background-color: rgb(238, 229, 101);
-    height: 500px;
-    text-align: center;
+grid-area: f;
+margin-top: 5px;
+background-color: rgb(238, 229, 101);
+height: max-content;
+text-align: center;
+display: grid; 
+grid-template-columns: 3fr 3fr 3fr;
+grid-template-rows: 3fr 3fr 3fr;
+  
+    
+}
+
+.images img{
+width: 150px;
+height: 150px;
+}
+.images{
+    padding: 10px;
+    border: 2px;
 }
