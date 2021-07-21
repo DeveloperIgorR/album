@@ -17,7 +17,7 @@ const SinglePhoto = ()=>{
     return(
         <div>
           {<img src={photo.url}/>}
-          <button></button>
+          <button>back</button>
         </div>
     )
 }

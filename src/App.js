@@ -1,20 +1,20 @@
-import React from 'react';
-import { BrowserRouter, Route } from 'react-router-dom';
-import Album from './album/Album';
-import './App.css';
-import SinglePhoto from './SinglePhoto/SinglePhoto';
+import React from 'react'
+import { BrowserRouter, Route } from 'react-router-dom'
+import Album from './album/Album'
+import './App.css'
+import SinglePhoto from './SinglePhoto/SinglePhoto'
 
 const App = ()=>{
   return (
    <BrowserRouter>
     <div className='wrapper' >
-      <Album/>
+     <Route path={'/'} exact render =  {()=><Album/>}/>
     </div>
-    <div>
-      <Route path={'/photos/:id'} render = {()=><SinglePhoto/>}/>
+    <div className='wrapper_single'>
+      <Route path={'/photos/:id'} exact render = {()=><SinglePhoto/>}/>
     </div>
     </BrowserRouter>
-  );
+  )
 }
 
-export default App;
+export default App

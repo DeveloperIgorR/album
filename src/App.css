@@ -11,4 +11,11 @@
     margin-top: 50px;
     margin-bottom: 50px;
 }
-
+.wrapper_single{
+grid-area: f;
+margin-top: 5px;
+background-color: rgb(238, 229, 101);
+height: max-content;
+width:auto;
+text-align: center;
+}
