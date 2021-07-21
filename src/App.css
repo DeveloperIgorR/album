@@ -13,9 +13,11 @@
 }
 .wrapper_single{
 grid-area: f;
-margin-top: 5px;
+padding-top: 150px;
+padding-bottom: 150px;
+margin-right: 100px;
+margin-left:100px ;
 background-color: rgb(238, 229, 101);
 height: max-content;
-width:auto;
 text-align: center;
 }

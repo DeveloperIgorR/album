@@ -21,11 +21,14 @@ const Album = () => {
         
     }
     
+    function getNewPortion (newPortion){
+       setFiles([...files,newPortion])
+    }
     return (
         <div>
             <div>
                 <AlbumForm createFiles={createFiles} />
-                <AlbumList files={files}/>
+                <AlbumList getNewPortion={getNewPortion} files={files}/>
             </div>
             
         </div>

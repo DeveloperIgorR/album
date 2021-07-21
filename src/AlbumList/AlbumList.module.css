@@ -7,8 +7,6 @@ text-align: center;
 display: grid; 
 grid-template-columns: 3fr 3fr 3fr;
 grid-template-rows: 3fr 3fr 3fr;
-  
-    
 }
 
 .images img{
@@ -18,4 +16,7 @@ height: 150px;
 .images{
     padding: 10px;
     border: 2px;
+}
+.pagination{
+    text-align: center;
 }
