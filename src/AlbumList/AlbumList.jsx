@@ -5,8 +5,8 @@ import l from './AlbumList.module.css'
 
 const AlbumList = (props) => {
  const [newPortion,setNewPortion] = useState([])
- let i = 1
- let page = i
+ 
+ let page = 1
  const limit = 9
   async function getNewPhotos(page,limit){
     const respons = await instance.get(`photos?_page=${page}_&_limit=${limit}`)
