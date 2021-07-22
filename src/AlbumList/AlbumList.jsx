@@ -21,12 +21,8 @@ const arr = [1,2,3,4,5]
         <div>
             <div className={l.pagination}>
                 <h2> Альбом с фотографиями</h2>
-                {arr.map((button)=><button id={button.index+1} onClick={getPortion} >{id}</button>)}
-                {/* <button id ='1' onClick={getPortion}>1</button>
-                <button id ='2' onClick={getPortion}>2 </button>
-                <button id ='3' onClick={getPortion}>3</button>
-                <button id ='4' onClick={getPortion}>4</button>
-                <button id ='5' onClick={getPortion}>5</button> */}
+                {arr.map((id)=><button id={arr.index+1} onClick={getPortion} >{id}</button>)}
+               
             </div>
 
             <div className={l.list}>
