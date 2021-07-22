@@ -5,14 +5,16 @@ import l from './AlbumList.module.css'
 
 const AlbumList = (props) => {
  const [newPortion,setNewPortion] = useState([])
- 
- let page = 1
+ const[pageNumber,setPageNumber] = useState(1)
+
+ let page = pageNumber
  const limit = 9
   async function getNewPhotos(page,limit){
     const respons = await instance.get(`photos?_page=${page}_&_limit=${limit}`)
     setNewPortion(respons.data)
 } 
-let getPortion = ()=>{
+let setPortion = (id)=>{
+    setPageNumber(id)
     getNewPhotos()
     props.getNewPortion(newPortion)
 }
@@ -21,7 +23,7 @@ const arr = [1,2,3,4,5]
         <div>
             <div className={l.pagination}>
                 <h2> Альбом с фотографиями</h2>
-                {arr.map((id)=><button id={arr.index+1} onClick={getPortion} >{id}</button>)}
+                {arr.map((id)=><button id={arr.index+1} onClick={(id)=>setPortion(id)} >{id}</button>)}
                
             </div>
 
