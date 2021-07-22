@@ -4,8 +4,8 @@ import { instance } from '../http/http'
 import l from './AlbumList.module.css'
 
 const AlbumList = (props) => {
- const [newPortion,setNewPortion] = useState([])
- const[pageNumber,setPageNumber] = useState(1)
+const[pageNumber,setPageNumber] = useState(1)
+const [newPortion,setNewPortion] = useState([])
 
  let page = pageNumber
  const limit = 9
@@ -13,11 +13,13 @@ const AlbumList = (props) => {
     const respons = await instance.get(`photos?_page=${page}_&_limit=${limit}`)
     setNewPortion(respons.data)
 } 
+
 let setPortion = (id)=>{
     setPageNumber(id)
     getNewPhotos()
     props.getNewPortion(newPortion)
 }
+
 const arr = [1,2,3,4,5]
     return (
         <div>
