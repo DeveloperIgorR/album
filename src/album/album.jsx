@@ -8,7 +8,7 @@ const Album = () => {
     const[pageNumber,setPageNumber] = useState(1)
     useEffect(()=>{
         getNewPhotos(pageNumber,limit)
-    },[])
+    },[pageNumber])
     const limit = 9
 
     async function getNewPhotos(pageNumber,limit){
