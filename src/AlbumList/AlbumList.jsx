@@ -7,16 +7,15 @@ const AlbumList = (props) => {
 const[pageNumber,setPageNumber] = useState(1)
 const [newPortion,setNewPortion] = useState([])
 
- let page = pageNumber
- const limit = 9
-  async function getNewPhotos(page,limit){
-    const respons = await instance.get(`photos?_page=${page}_&_limit=${limit}`)
+  const limit = 9
+  async function getNewPhotos(pageNumber,limit){
+    const respons = await instance.get(`photos?_page=${pageNumber}&_limit=${limit}`)
     setNewPortion(respons.data)
 } 
 
 let setPortion = (id)=>{
     setPageNumber(id)
-    getNewPhotos()
+    getNewPhotos(pageNumber,limit)
     props.getNewPortion(newPortion)
 }
 
