@@ -7,35 +7,59 @@ import l from '../AlbumList/AlbumList.module.css'
 const Album = () => {
     const [files, setFiles] = useState([])
     const [pageNumber, setPageNumber] = useState(1)
+    const [totalCount, setTotalCount] = useState(0)
     const limit = 9
     useEffect(() => {
         getNewPhotos()
     }, [])
-    
 
-    async function getNewPhotos() {
-        const respons = await instance.get(`photos?_page=${pageNumber}&_limit=${limit}`)
+
+    async function getNewPhotos(id) {
+        const respons = await instance.get(`photos?_page=${id}&_limit=${limit}`)
         setFiles(respons.data)
+        setTotalCount(respons.headers['x-total-count'])
     }
 
     let setPortion = (id) => {
         setPageNumber(id)
-        getNewPhotos()
+        getNewPhotos(id)
     }
 
     function createFiles(newFile) {
         setFiles([...files, newFile])
 
     }
+    const totalPages = Math.ceil(totalCount / limit)
+    const arr = []
+    function createPages() {
+        if (totalPages > 9) {
+            if (pageNumber > 4) {
+                for (let i = pageNumber - 3; i <= pageNumber + 4; i++) {
+                    arr.push(i)
+                    if (i == pageNumber) break
+                }
+            }
+            else {
+                for (let i = 1; i <= 9; i++) {
+                    arr.push(i)
+                    if (i == totalPages) break
+                }
+            }
+        } else {
+            for (let i = 1; i <= totalPages; i++){
+                arr.push(i)
+            }    
+        }
+    }
+    createPages()
 
-    const arr = [1,2,3,4,5]
     return (
         <div>
             <div>
                 <AlbumForm createFiles={createFiles} />
                 <div className={l.pagination}>
                     <h2> Альбом с фотографиями</h2>
-                    {arr.map((id) => <button id={arr.index + 1} onClick={(id) =>setPortion(id)} >{id}</button>)}
+                    {arr.map((id) => <button id={arr.index + 1} onClick={() => setPortion(id)} >{id}</button>)}
                 </div>
                 <AlbumList setPortion={setPortion} files={files} />
             </div>
