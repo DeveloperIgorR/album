@@ -68,3 +68,20 @@ let sumArr = arr7.reduce((sum,item)=>sum+item,0)
 console.log(sumArr)
 
 /////////////////
+
+let arrDirectly = [1,2,3,4,5,6,7]
+Array.prototype.onReverse  = function (callback){
+   let resArr = []
+   const thisArr = this
+   for(let i =thisArr.length; i>=0; i--){
+      resArr.push(callback(thisArr[i],i,thisArr))
+   }
+   return resArr
+}
+arrDirectly.onReverse(el=> el)
+
+///////////////////
+
+
+
+
