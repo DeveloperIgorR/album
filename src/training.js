@@ -82,6 +82,18 @@ arrDirectly.onReverse(el=> el)
 
 ///////////////////
 
+function exactCentury(d){
+    if(d % 100 == 0){
+        return d/100 +1
+    }else return Math.ceil(d/100)
+}
+exactCentury(1930)
 
+///////////////////
 
+function square (a,h){
+    return (a*h)/2
+}
+square (5,7)
 
+/////////////////////
