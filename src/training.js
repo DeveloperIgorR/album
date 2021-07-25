@@ -97,3 +97,18 @@ function square (a,h){
 square (5,7)
 
 /////////////////////
+
+Array.prototype.compare = function( compare){
+    let result = []
+    const thisArr = this
+    
+    for(let i = 0; i<thisArr.length; i++){
+        if(thisArr[i] >thisArr[i+1])return 1
+        result.push( compare(thisArr[i],i,thisArr))
+         if(thisArr[i] == thisArr[i+1]) return 0
+        result.push( compare(thisArr[i],i,thisArr))
+        if(thisArr[i] < thisArr[i+1]) return -1
+        result.push( compare(thisArr[i],i,thisArr))
+    }
+    return result
+}
