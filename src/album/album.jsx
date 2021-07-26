@@ -36,7 +36,7 @@ const Album = () => {
         if (totalPages > 9) {
             if (pageNumber > 4) {
                 if(pageNumber == totalPages){
-                    for (let i = totalPages - 3; i <= totalPages + 3; i++){
+                    for (let i = totalPages - 3; i <= totalPages; i++){
                     break
                     } 
                 }
@@ -52,7 +52,7 @@ const Album = () => {
                 }
             }
         } else {
-            for (let i = 1; i <= totalPages; i++) {
+            for (let i = 1; i < totalPages; i++) {
                 arr.push(i)
 
             }

@@ -1,6 +1,6 @@
 .form{
     grid-area: f;
     background-color: rgb(151, 102, 207);
-    height: 100px;
+    height: auto ;
     text-align:center;
 }

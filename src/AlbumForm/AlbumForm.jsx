@@ -5,6 +5,7 @@ const AlbumForm = (props)=>{
     const[name,setName] = useState('')
     const[date,setDate] = useState('')
     const[author,setAuthor] = useState('')
+    const[file,setFile] = useState([])
     
     let addData = ()=>{
         let newFile = {
@@ -29,6 +30,9 @@ const AlbumForm = (props)=>{
          </div>
          <div>
               <input placeholder='имя автора' value={author} onChange={event=>setAuthor(event.target.value)}></input>
+         </div>
+         <div>
+              <input  type='file'  onChange={event=> setFile(event.target.value)}></input>
          </div>
          <button onClick={addData}>add discription</button>
         </div>
