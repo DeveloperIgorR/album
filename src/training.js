@@ -121,7 +121,7 @@ Array.prototype.myFilter = function (callback) {
     for (let i = 0; i < arr.length; i++) {
       if (callback(arr[i], i, arr)) {
         result.push(arr[i]);
-      } else return false;
+      } 
     }
     return result;
   };
