@@ -34,20 +34,20 @@ const Album = () => {
     function createPages() {
         if (totalPages > 9) {
             if (pageNumber > 4) {
-                for (let i = pageNumber - 3; i <= pageNumber + 4; i++) {
-                    arr.push(i)
-                    if (i == pageNumber) break
-                }
+                for (let i = pageNumber - 3; i <= pageNumber + 3; i++) {
+                    arr.push(i)                 
+                } arr.push(totalPages)
             }
             else {
                 for (let i = 1; i <= 9; i++) {
                     arr.push(i)
-                    if (i == totalPages) break
+                    
                 }
             }
         } else {
             for (let i = 1; i <= totalPages; i++){
                 arr.push(i)
+                
             }    
         }
     }
