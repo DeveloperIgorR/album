@@ -112,3 +112,17 @@ Array.prototype.compare = function( compare){
     }
     return result
 }
+
+/////////////////
+
+Array.prototype.myFilter = function (callback) {
+    let result = [];
+    let arr = this;
+    for (let i = 0; i < arr.length; i++) {
+      if (callback(arr[i], i, arr)) {
+        result.push(arr[i]);
+      } else return false;
+    }
+    return result;
+  };
+  
