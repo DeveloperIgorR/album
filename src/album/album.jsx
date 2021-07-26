@@ -3,6 +3,7 @@ import AlbumForm from '../AlbumForm/AlbumForm'
 import AlbumList from '../AlbumList/AlbumList'
 import { instance } from '../http/http'
 import l from '../AlbumList/AlbumList.module.css'
+import b from './Album.module.css'
 
 const Album = () => {
     const [files, setFiles] = useState([])
@@ -34,9 +35,10 @@ const Album = () => {
     function createPages() {
         if (totalPages > 9) {
             if (pageNumber > 4) {
+                arr.push(1)
                 for (let i = pageNumber - 3; i <= pageNumber + 3; i++) {
                     arr.push(i)                 
-                } arr.push(totalPages)
+                } 
             }
             else {
                 for (let i = 1; i <= 9; i++) {
@@ -49,7 +51,7 @@ const Album = () => {
                 arr.push(i)
                 
             }    
-        }
+        }arr.push(totalPages)
     }
     createPages()
 
@@ -59,7 +61,8 @@ const Album = () => {
                 <AlbumForm createFiles={createFiles} />
                 <div className={l.pagination}>
                     <h2> Альбом с фотографиями</h2>
-                    {arr.map((id) => <button id={arr.index + 1} onClick={() => setPortion(id)} >{id}</button>)}
+                    {arr.map((id) => <button className={pageNumber == id? b.active:b.none} id={arr.index + 1} 
+                    onClick={() => setPortion(id)} >{id}</button>)}
                 </div>
                 <AlbumList setPortion={setPortion} files={files} />
             </div>
