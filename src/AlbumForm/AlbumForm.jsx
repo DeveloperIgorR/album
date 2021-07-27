@@ -12,12 +12,18 @@ const AlbumForm = (props)=>{
             id:Date.now(),
             title:name,
             date:date,
-            author:author
+            author:author,
+            url:file
         }
         props.createFiles(newFile)
         setName('')
         setDate('')
         setAuthor('')
+    }
+
+    let addChange = (event)=>{
+       let url = URL.createObjectURL(event.target.files[0])
+       setFile(url)
     }
     
     return(
@@ -32,7 +38,7 @@ const AlbumForm = (props)=>{
               <input placeholder='имя автора' value={author} onChange={event=>setAuthor(event.target.value)}></input>
          </div>
          <div>
-              <input  type='file'  onChange={event=> setFile(event.target.value)}></input>
+              <input  type='file'  onChange={addChange}></input>
          </div>
          <button onClick={addData}>add discription</button>
         </div>

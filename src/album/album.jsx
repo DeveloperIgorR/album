@@ -30,6 +30,7 @@ const Album = () => {
         setFiles([...files, newFile])
 
     }
+    
     const totalPages = Math.ceil(totalCount / limit)
     const arr = []
     function createPages() {
