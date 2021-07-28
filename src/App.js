@@ -3,7 +3,6 @@ import { BrowserRouter, Route } from 'react-router-dom'
 import Album from './album/Album'
 import './App.css'
 import SinglePhoto from './SinglePhoto/SinglePhoto'
-import Modal from './utils/Modal'
 
 const App = ()=>{
   

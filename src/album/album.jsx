@@ -5,7 +5,7 @@ import { instance } from '../http/http'
 import l from '../AlbumList/AlbumList.module.css'
 import b from './Album.module.css'
 import createPages from '../utils/Pagination'
-import Modal from '../utils/Modal'
+import Modal from '../../src/Components/Modal'
 
 const Album = () => {
     const [files, setFiles] = useState([])
