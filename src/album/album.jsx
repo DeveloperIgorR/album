@@ -1,8 +1,8 @@
 import React, { useEffect, useState } from 'react'
-import AlbumForm from '../AlbumForm/AlbumForm'
-import AlbumList from '../AlbumList/AlbumList'
+import AlbumForm from '../Pages/AlbumForm/AlbumForm'
+import AlbumList from '../Pages/AlbumList/AlbumList'
 import { instance } from '../http/http'
-import l from '../AlbumList/AlbumList.module.css'
+import l from '../Pages/AlbumList/AlbumList.module.css'
 import b from './Album.module.css'
 import createPages from '../utils/Pagination'
 import Modal from '../../src/Components/Modal'
@@ -44,7 +44,7 @@ const Album = () => {
         <div>
             <div>
                 <Modal active={active} setActive={setActive} >
-                    <AlbumForm createFiles={createFiles} />
+                    <AlbumForm createFiles={createFiles} setActive={setActive} />
                 </Modal>
 
                 <div className={b.form}>

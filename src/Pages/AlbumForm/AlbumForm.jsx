@@ -19,6 +19,7 @@ const AlbumForm = (props) => {
         setName('')
         setDate('')
         setAuthor('')
+        props.setActive(false)
     }
 
     let addChange = (event) => {
