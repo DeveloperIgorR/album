@@ -7,8 +7,7 @@ const AlbumForm = (props) => {
     const [date, setDate] = useState('')
     const [author, setAuthor] = useState('')
     const [file, setFile] = useState([])
-    const [active, setActive] = useState(false)
-
+    
     let addData = () => {
         let newFile = {
             id: Date.now(),
@@ -29,10 +28,8 @@ const AlbumForm = (props) => {
     }
 
     return (
-
         <div className={f.form}>
-
-            <Modal active={active} setActive={setActive}>
+           
                 <div>
                     <input placeholder='название' value={name} onChange={event => setName(event.target.value)}></input>
                 </div>
@@ -45,10 +42,8 @@ const AlbumForm = (props) => {
                 <div>
                     <input type='file' onChange={addChange}></input>
                 </div>
-                <button onClick={addData}>add discription</button>
-            </Modal>
+                <button onClick={addData}>add discription</button>              
             
-            <button onClick={()=>setActive(true)}>Введите данные</button>
         </div>
     )
 }
