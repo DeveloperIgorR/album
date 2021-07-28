@@ -2,7 +2,7 @@ import React, { useState } from 'react'
 import { BrowserRouter, Route } from 'react-router-dom'
 import Album from './album/Album'
 import './App.css'
-import SinglePhoto from './SinglePhoto/SinglePhoto'
+import SinglePhoto from '../src/Pages/SinglePhoto/SinglePhoto'
 
 const App = ()=>{
   

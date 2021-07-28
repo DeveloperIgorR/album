@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react"
 import { useHistory, useParams } from "react-router-dom"
-import { instance } from "../http/http"
+import { instance } from "../../http/http"
 
 const SinglePhoto = () => {
   const [photo, setPhoto] = useState({})
