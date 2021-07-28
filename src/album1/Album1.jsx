@@ -18,7 +18,7 @@ const Album1 = () => {
         
         <div>
             <div>
-                <button onClick={}>Получить альбом</button>
+                <button >Получить альбом</button>
             </div>
           {files.map( objects => { 
              return(
