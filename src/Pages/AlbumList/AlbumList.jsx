@@ -15,7 +15,7 @@ const AlbumList = (props) => {
                             <li>{discription.title}</li>
                             <li>{discription.date}</li>
                             <li>{discription.author}</li>
-                            <NavLink to={'/photos/' + discription.id}><img src={discription.url} /></NavLink>
+                            <NavLink to={'/photos/' + discription.albumId}><img src={discription.url} /></NavLink>
                         </p>
                     </div>
                 )}
