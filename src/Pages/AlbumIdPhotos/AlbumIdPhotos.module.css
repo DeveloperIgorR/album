@@ -1,0 +1,7 @@
+.album{
+  display: flex;
+  justify-content: space-between;
+  margin: 50px;
+  padding: 10px;
+  border: solid 2px black;
+}

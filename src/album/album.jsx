@@ -6,7 +6,7 @@ import l from '../Pages/AlbumList/AlbumList.module.css'
 import b from './Album.module.css'
 import createPages from '../utils/Pagination'
 import Modal from '../../src/Components/Modal'
-import Albums from '../albums/Albums'
+
 
 const Album = () => {
     const [files, setFiles] = useState([])

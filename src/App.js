@@ -1,7 +1,6 @@
 import React, { useState } from 'react'
 import { BrowserRouter, Route } from 'react-router-dom'
 import Album from './album/Album'
-import Albums from './albums/Albums'
 import './App.css'
 import SinglePhoto from '../src/Pages/SinglePhoto/SinglePhoto'
 import AlbumIdPhotos from './Pages/AlbumIdPhotos/AlbumIdPhotos'
