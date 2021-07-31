@@ -14,7 +14,7 @@ const App = ()=>{
     </div>
     <div className='wrapper_single'>
       {/* <Route path={'/photos/: id'} exact render = {()=><SinglePhoto/>}/> */}
-      <Route path={'/photos/: albumId'} exact render = {() => <Albums/>}/>
+      <Route path={'/photos/:albumId'} exact render = {() => <Albums/>}/>
     </div>
     
     </BrowserRouter>

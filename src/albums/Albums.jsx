@@ -12,16 +12,21 @@ const Albums = () => {
     }, [])
 
     async function getAlbum() {
-        const respons = await instance.get('photos'+ params.albumId)
+        const respons = await instance.get(`photos?${params.albumId}`)
         setAlbum(respons.data)
-        console.log(respons.data)
-        
+                
     }  
-  
+  console.log(album.albumId)
     return (
         <div>
+           <h2>Album N {album.albumId}</h2>
+           
             {album.map(images => {
-                return <img  src={images.url}/>
+                return  (
+                    <div>                      
+                      <img  src={images.url}/>                    
+                   </div>
+                )
             })}
             <div>
               <button onClick={() => router.push('/')}> back</button>
