@@ -12,7 +12,7 @@ const Albums = () => {
     }, [])
 
     async function getAlbum() {
-        const respons = await instance.get(`photos?${params.albumId}`)
+        const respons = await instance.get(`photos?albumId=${params.albumId}`)
         setAlbum(respons.data)
                 
     }  

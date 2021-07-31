@@ -4,17 +4,18 @@ import Album from './album/Album'
 import Albums from './albums/Albums'
 import './App.css'
 import SinglePhoto from '../src/Pages/SinglePhoto/SinglePhoto'
+import AlbumIdPhotos from './Pages/AlbumIdPhotos/AlbumIdPhotos'
 
 const App = ()=>{
   
   return (
    <BrowserRouter>
     <div className='wrapper' >
-     <Route path={'/'} exact render =  {() => <Album/>}/>
+     <Route path={'/'} exact render =  {() => <AlbumIdPhotos/>}/>
+     <Route path={'/album'} exact render =  {() => <Album/>}/>
     </div>
     <div className='wrapper_single'>
-      {/* <Route path={'/photos/: id'} exact render = {()=><SinglePhoto/>}/> */}
-      <Route path={'/photos/:albumId'} exact render = {() => <Albums/>}/>
+      <Route path={'/photos/:id'} exact render = {()=><SinglePhoto/>}/>      
     </div>
     
     </BrowserRouter>

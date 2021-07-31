@@ -11,7 +11,7 @@ const SinglePhoto = () => {
   }, [])
 
   async function getPhoto() {
-    const respons = await instance.get('photos/' + params.id)
+    const respons = await instance.get(`photos/${params.id}`)
     setPhoto(respons.data)
   }
 

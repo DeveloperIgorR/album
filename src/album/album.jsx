@@ -51,7 +51,7 @@ const Album = () => {
                 <div className={b.form}>
                   <button onClick={() => setActive(true)}>Введите данные</button>
                </div>
-
+        
                 <div className={l.pagination}>
                     <h2> Альбом с фотографиями</h2>
                     {arr.map((id) => <button className={pageNumber == id ? b.active : b.none} id={arr.index + 1}
