@@ -10,8 +10,8 @@ const App = ()=>{
   return (
    <BrowserRouter>
     <div className='wrapper' >
-     <Route path={'/'} exact render =  {() => <AlbumIdPhotos/>}/>
-     <Route path={'/album'} exact render =  {() => <Album/>}/>
+     <Route path={'/albums'} exact render =  {() => <AlbumIdPhotos/>}/>
+     <Route path={'/albums/:id'} exact render =  {() => <Album/>}/>
     </div>
     <div className='wrapper_single'>
       <Route path={'/photos/:id'} exact render = {()=><SinglePhoto/>}/>      

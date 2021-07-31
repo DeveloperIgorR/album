@@ -6,6 +6,7 @@ import l from '../Pages/AlbumList/AlbumList.module.css'
 import b from './Album.module.css'
 import createPages from '../utils/Pagination'
 import Modal from '../../src/Components/Modal'
+import { useParams } from 'react-router-dom'
 
 
 const Album = () => {
@@ -13,6 +14,7 @@ const Album = () => {
     const [pageNumber, setPageNumber] = useState(1)
     const [totalCount, setTotalCount] = useState(0)
     const [active, setActive] = useState(false)
+    const params = useParams()
 
     const limit = 9
     useEffect(() => {
@@ -21,7 +23,7 @@ const Album = () => {
 
 
     async function getNewPhotos(id) {
-        const respons = await instance.get(`photos?_page=${id}&_limit=${limit}`)
+        const respons = await instance.get(`photos?albumId=${params.id}&_page=${id}&_limit=${limit}`)
         setFiles(respons.data)
         setTotalCount(respons.headers['x-total-count'])
     }
