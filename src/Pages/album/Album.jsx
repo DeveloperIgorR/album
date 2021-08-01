@@ -2,11 +2,11 @@ import React, { useEffect, useState } from 'react'
 import AlbumForm from '../../Components/AlbumForm/AlbumForm'
 import AlbumList from '../../Components/AlbumList/AlbumList'
 import { instance } from '../../http/http'
-import l from '../../Pages/AlbumList/AlbumList.module.css'
+import l from '../../Components/AlbumList/AlbumList.module.css'
 import b from './Album.module.css'
-import createPages from '../../utils/Pagination'
 import Modal from '../../Components/Modal'
 import { useParams } from 'react-router-dom'
+import Pagination from '../../Components/Pagination/Pagination'
 
 
 const Album = () => {
@@ -28,7 +28,7 @@ const Album = () => {
         setTotalCount(respons.headers['x-total-count'])
     }
 
-    let setPortion = (id) => {
+    let setLimit = (id) => {
         setPageNumber(id)
         getNewPhotos(id)
     }
@@ -36,13 +36,8 @@ const Album = () => {
     function createFiles(newFile) {
         setFiles([...files, newFile])
 
-    }
+    }    
     
-    const totalPages = Math.ceil(totalCount / limit)
-    const arr = []
-    
-    createPages(totalPages,pageNumber,arr)
-
     return (
         <div>
             <div>
@@ -56,11 +51,11 @@ const Album = () => {
         
                 <div className={l.pagination}>
                     <h2> Альбом с фотографиями</h2>
-                    {arr.map((id) => <button className={pageNumber == id ? b.active : b.none} id={arr.index + 1}
-                        onClick={() => setPortion(id)} >{id}</button>)}
+                    <Pagination setLimit={setLimit} pageNumber={pageNumber}
+                                totalCount={totalCount} limit={limit}/> 
                 </div>
                 
-                <AlbumList setPortion={setPortion} files={files} />
+                <AlbumList setLimit={setLimit} files={files} />
             </div>
 
         </div>

@@ -1,0 +1,8 @@
+.active{
+    border:solid 2px;
+    
+}
+.none{
+    border: none;
+    cursor: pointer;
+}

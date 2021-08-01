@@ -1,8 +1,8 @@
 import React, { useEffect, useState } from 'react'
 import { useHistory } from 'react-router-dom'
 import { instance } from '../../http/http'
-import createPages from '../../utils/Pagination'
 import a from './AlbumIdPhotos.module.css'
+import Pagination from '../../Components/Pagination/Pagination'
 
 const AlbumIdPhotos = () => {
     const [albumsId, setAlbumsId] = useState([])
@@ -15,20 +15,15 @@ const AlbumIdPhotos = () => {
     const router = useHistory()
 
     async function getAlbumsId(id) {
-        const respons = await instance.get(`albums?page=${id}&_limit=${limit}`)
+        const respons = await instance.get(`albums?_page=${id}&_limit=${limit}`)
         setAlbumsId(respons.data)
     }
  
-    let setAlbums = (id) => {
+    let setLimit = (id) => {
         setPageNumber(id)
         getAlbumsId(id)
     }
-
-    const totalPages = Math.ceil(totalCount / limit)
-    const arr = []
-
-    createPages(totalPages, pageNumber, arr)
-
+    
     return (
         <div>
             <h2>Список альбомов </h2>
@@ -39,9 +34,10 @@ const AlbumIdPhotos = () => {
                     </div>
                 )
             })}
+            
             <div className={a.pagination} >
-                {arr.map((id) => <button className={pageNumber == id ? a.active : a.none} id={arr.index + 1}
-                    onClick={() => setAlbums(id)} >{id}</button>)}
+                <Pagination setLimit={setLimit} pageNumber={pageNumber}
+                 totalCount={totalCount} limit={limit}/>
             </div>
         </div>
     )
