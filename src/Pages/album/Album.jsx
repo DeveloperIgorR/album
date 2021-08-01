@@ -1,11 +1,11 @@
 import React, { useEffect, useState } from 'react'
-import AlbumForm from '../Pages/AlbumForm/AlbumForm'
-import AlbumList from '../Pages/AlbumList/AlbumList'
-import { instance } from '../http/http'
-import l from '../Pages/AlbumList/AlbumList.module.css'
+import AlbumForm from '../../Components/AlbumForm/AlbumForm'
+import AlbumList from '../../Components/AlbumList/AlbumList'
+import { instance } from '../../http/http'
+import l from '../../Pages/AlbumList/AlbumList.module.css'
 import b from './Album.module.css'
-import createPages from '../utils/Pagination'
-import Modal from '../../src/Components/Modal'
+import createPages from '../../utils/Pagination'
+import Modal from '../../Components/Modal'
 import { useParams } from 'react-router-dom'
 
 

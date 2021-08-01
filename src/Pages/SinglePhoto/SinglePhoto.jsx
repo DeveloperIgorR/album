@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react"
 import { useHistory, useParams } from "react-router-dom"
 import { instance } from "../../http/http"
+import s from './Single.module.css'
 
 const SinglePhoto = () => {
   const [photo, setPhoto] = useState({})
@@ -16,7 +17,7 @@ const SinglePhoto = () => {
   }
 
   return (
-     <div>
+     <div className={s.single}>
           {photo.title}
       <div>
       <div>
