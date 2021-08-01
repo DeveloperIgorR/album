@@ -3,10 +3,12 @@ import { useHistory } from 'react-router-dom'
 import { instance } from '../../http/http'
 import a from './AlbumIdPhotos.module.css'
 import Pagination from '../../Components/Pagination/Pagination'
+import Loader from '../../Components/Loader/Loader'
 
 const AlbumIdPhotos = () => {
     const [albumsId, setAlbumsId] = useState([])
     const [pageNumber, setPageNumber] = useState(1)
+    const [fetch,setFetch] = useState(false)
     const totalCount = 100
     const limit = 5
     useEffect(() => {
@@ -15,8 +17,10 @@ const AlbumIdPhotos = () => {
     const router = useHistory()
 
     async function getAlbumsId(id) {
+        setFetch(true)
         const respons = await instance.get(`albums?_page=${id}&_limit=${limit}`)
         setAlbumsId(respons.data)
+        setFetch(false)
     }
  
     let setLimit = (id) => {
@@ -36,8 +40,8 @@ const AlbumIdPhotos = () => {
             })}
             
             <div className={a.pagination} >
-                <Pagination setLimit={setLimit} pageNumber={pageNumber}
-                 totalCount={totalCount} limit={limit}/>
+                {fetch === true? <Loader/>: <Pagination setLimit={setLimit} pageNumber={pageNumber}
+                 totalCount={totalCount} limit={limit}/>}
             </div>
         </div>
     )
