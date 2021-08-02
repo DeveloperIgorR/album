@@ -12,3 +12,8 @@
     height: auto ;
     text-align:center;
 }
+.select{
+    display: flex;
+    justify-content: center;    
+    justify-content: space-around;
+}

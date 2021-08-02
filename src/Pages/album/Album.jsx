@@ -16,12 +16,12 @@ const Album = () => {
     const [totalCount, setTotalCount] = useState(0)
     const [active, setActive] = useState(false)
     const [fetch,setFetch] = useState(false)
+    const [limit,setLimits] = useState(9)
     const params = useParams()
-
-    const limit = 9
+    
     useEffect(() => {
         getNewPhotos()
-    }, [])
+    }, [limit])
 
 
     async function getNewPhotos(id) {
@@ -41,7 +41,7 @@ const Album = () => {
         setFiles([...files, newFile])
 
     }    
-    
+    let options = [5,10,15,20,25]
     return (
         <div>
             <div>
@@ -55,8 +55,17 @@ const Album = () => {
         
                 <div className={l.pagination}>
                     <h2> Альбом с фотографиями</h2>
-                    <Pagination setLimit={setLimit} pageNumber={pageNumber}
-                                totalCount={totalCount} limit={limit}/> 
+                    <div className={b.select} >                       
+                           <Pagination setLimit={setLimit} pageNumber={pageNumber}
+                                totalCount={totalCount} limit={limit}/>                                 
+                       <select onChange={event => setLimits(event.target.value)}>
+                            <option selected disabled>количество фотографий</option>
+                            {options.map((i) => {
+                               return <option value={i}>{i}  фотографий</option>
+                            })}
+                            
+                       </select>
+                    </div>
                 </div>
                 
                 {fetch === true? <Loader/>: <AlbumList setLimit={setLimit} files={files}/>}
