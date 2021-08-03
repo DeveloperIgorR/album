@@ -16,6 +16,7 @@ const Album = () => {
     const [totalCount, setTotalCount] = useState(0)
     const [active, setActive] = useState(false)
     const [activePhoto,setActivePhoto] = useState(false)
+    const [currentPhoto,setCurrentPhoto] = useState({})
     const [fetch,setFetch] = useState(false)
     const [limit,setLimits] = useState(9)
     const params = useParams()
@@ -43,8 +44,9 @@ const Album = () => {
 
     }    
      
-    let showPhoto = (currentPhoto) => {
-        return <img src={currentPhoto}/>
+    let onPhotoClick = (discription) => {
+        setActivePhoto(true)
+        setCurrentPhoto(discription)
     }
 
     let options = [5,10,15,20,25]
@@ -79,10 +81,10 @@ const Album = () => {
                 </div>
                 
                 {fetch === true? <Loader/>: <AlbumList setLimit={setLimit} files={files}
-                                            setActivePhoto={setActivePhoto} showPhoto={showPhoto}/>}
+                                            setActivePhoto={setActivePhoto} onPhotoClick={onPhotoClick}/>}
             </div>
             <Modal active={activePhoto } setActive={setActivePhoto}>
-                {showPhoto()}
+                <img src={currentPhoto.url}/>
             </Modal>
 
         </div>

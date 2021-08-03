@@ -4,14 +4,6 @@ import l from './AlbumList.module.css'
 
 const AlbumList = (props) => {
 
-const [currentPhoto,setCurrentPhoto] = useState('')
-
-let setPhotosUrl = ({ target: { value } }) => {
-    setCurrentPhoto(value)
-    props.setActivePhoto(true)
-    props.showPhoto(currentPhoto)
-}
-
     return (
         <div>
             
@@ -23,7 +15,7 @@ let setPhotosUrl = ({ target: { value } }) => {
                             <li>{discription.title}</li>
                             <li>{discription.date}</li>
                             <li>{discription.author}</li>
-                            <img value={discription.url} src={discription.url} onClick={setPhotosUrl}/>
+                            <img value={discription} src={discription.url} onClick={() => props.onPhotoClick(discription)}/>
                             {/* <NavLink to={'/photos/' + discription.id}><img src={discription.url} /></NavLink> */}
                         </p>
                     </div>
