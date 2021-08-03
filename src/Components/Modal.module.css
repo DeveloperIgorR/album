@@ -14,7 +14,7 @@
 }
 .modalActive{
     opacity: 1;
-    pointer-events: all;
+    pointer-events: all;    
 }
 .content{
     padding: 30px;
@@ -22,8 +22,14 @@
     background-color: white;
     width: 50vw;
     transform: scale(0.5);
-    transition: 0.5s;
+    transition: 0.4s;
 }
 .contentActive{
     transform: scale(1);
+    display: flex;
+    justify-content: center;
+    height: 400px;
+    width:400px; 
+    flex-flow: column;    
+    text-align: center;
 }

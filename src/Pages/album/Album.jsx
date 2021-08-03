@@ -49,6 +49,14 @@ const Album = () => {
         setCurrentPhoto(discription)
     }
 
+    let clickBack = () => {
+        setCurrentPhoto(currentPhoto.id-1)
+    }
+
+    let clickForward = () => {
+        setCurrentPhoto(currentPhoto.id+'1')        
+    }
+
     let options = [5,10,15,20,25]
     return (
         <div>
@@ -85,6 +93,10 @@ const Album = () => {
             </div>
             <Modal active={activePhoto } setActive={setActivePhoto}>
                 <img src={currentPhoto.url}/>
+                <div>
+                    <button onClick={clickBack}>back</button> <button onClick={clickForward}>forward</button>
+                </div>
+                
             </Modal>
 
         </div>
