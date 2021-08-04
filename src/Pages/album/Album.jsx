@@ -19,6 +19,7 @@ const Album = () => {
     const [currentPhoto,setCurrentPhoto] = useState({})
     const [fetch,setFetch] = useState(false)
     const [limit,setLimits] = useState(9)
+    const [indexOfPhoto,setIndexOfPhoto] = useState(0)
     const params = useParams()
     
     useEffect(() => {
@@ -47,14 +48,17 @@ const Album = () => {
     let onPhotoClick = (discription) => {
         setActivePhoto(true)
         setCurrentPhoto(discription)
+        setIndexOfPhoto (files.indexOf(discription))
+        console.log(indexOfPhoto)
     }
 
     let clickBack = () => {
-        setCurrentPhoto(currentPhoto.id-1)
+        
+        setCurrentPhoto(files[indexOfPhoto-1])
     }
 
     let clickForward = () => {
-        setCurrentPhoto(currentPhoto.id+'1')        
+        setCurrentPhoto(files[indexOfPhoto+1])        
     }
 
     let options = [5,10,15,20,25]
