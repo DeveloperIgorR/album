@@ -52,13 +52,21 @@ const Album = () => {
         console.log(indexOfPhoto)
     }
 
-    let clickBack = () => {
+    let clickBack = () => {        
+        if(indexOfPhoto===0){setIndexOfPhoto(files.length-1)
+              setCurrentPhoto(files[files.length-1])}
+        else {setCurrentPhoto(files[indexOfPhoto-1])
+              setIndexOfPhoto(indexOfPhoto-1)}
         
-        setCurrentPhoto(files[indexOfPhoto-1])
+
     }
 
     let clickForward = () => {
-        setCurrentPhoto(files[indexOfPhoto+1])        
+        if(indexOfPhoto===files.length-1){setIndexOfPhoto(0)
+            setCurrentPhoto(files[0])}
+        else {setCurrentPhoto(files[indexOfPhoto+1])
+              setIndexOfPhoto(indexOfPhoto+1)}
+        
     }
 
     let options = [5,10,15,20,25]
